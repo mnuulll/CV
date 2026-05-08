@@ -14,163 +14,122 @@
     
     .nav-link {
       position: relative;
+      transition: all 0.3s;
     }
-    .nav-link:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      bottom: -6px;
-      left: 0;
-      background-color: #22d3ee;
-      transition: width 0.4s ease;
+    .nav-active {
+      color: #22d3ee;
+      border-bottom: 3px solid #22d3ee;
     }
-    .nav-link:hover:after,
-    .nav-link.active:after {
-      width: 100%;
+    section {
+      display: none;
+      min-height: 100vh;
+      padding-top: 100px;
     }
-    .card-hover:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-    }
+    #home { display: block; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-200">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-lg border-b border-slate-700">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900 border-b border-slate-700">
     <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="text-3xl font-bold heading-font tracking-tight">Nama<span class="text-cyan-400">.</span></div>
+      <div class="text-3xl font-bold heading-font">Nama<span class="text-cyan-400">.</span></div>
       <div class="flex gap-8 text-sm font-medium">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">Tentang</a>
-        <a href="#education" class="nav-link">Pendidikan</a>
-        <a href="#experience" class="nav-link">Pengalaman</a>
-        <a href="#projects" class="nav-link">Proyek</a>
-        <a href="#contact" class="nav-link">Kontak</a>
+        <a href="#" onclick="showSection('home')" class="nav-link nav-active">Home</a>
+        <a href="#" onclick="showSection('about')" class="nav-link">Tentang</a>
+        <a href="#" onclick="showSection('education')" class="nav-link">Pendidikan</a>
+        <a href="#" onclick="showSection('experience')" class="nav-link">Pengalaman</a>
+        <a href="#" onclick="showSection('projects')" class="nav-link">Proyek</a>
+        <a href="#" onclick="showSection('contact')" class="nav-link">Kontak</a>
       </div>
     </div>
   </nav>
 
   <!-- HOME -->
-  <section id="home" class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center pt-20">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <h1 class="text-6xl md:text-7xl font-bold heading-font leading-tight">
-          Halo, saya <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Nama Anda</span>
-        </h1>
-        <p id="typing" class="text-3xl text-cyan-400"></p>
-        <p class="text-xl text-slate-400">Web Developer • UI/UX Enthusiast</p>
-        
-        <div class="flex gap-4">
-          <a href="#contact" class="px-8 py-4 bg-cyan-500 text-black font-semibold rounded-2xl hover:bg-cyan-400 transition-all">Hubungi Saya</a>
-          <a href="#projects" class="px-8 py-4 border border-slate-400 font-semibold rounded-2xl hover:bg-slate-800 transition-all">Lihat Proyek</a>
+  <section id="home">
+    <div class="max-w-6xl mx-auto px-6 min-h-screen flex items-center">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h1 class="text-6xl md:text-7xl font-bold heading-font">Halo, saya <span class="text-cyan-400">Nama Anda</span></h1>
+          <p id="typing" class="text-3xl text-cyan-400"></p>
+          <p class="text-xl text-slate-400">Web Developer & UI/UX Enthusiast</p>
+          <div class="flex gap-4">
+            <button onclick="showSection('contact')" class="px-8 py-4 bg-cyan-500 text-black font-semibold rounded-2xl">Hubungi Saya</button>
+            <button onclick="showSection('projects')" class="px-8 py-4 border border-slate-400 font-semibold rounded-2xl">Lihat Proyek</button>
+          </div>
         </div>
-      </div>
-      <div class="flex justify-center">
-        <img src="https://via.placeholder.com/600x600/1e2937/64748b?text=Foto+Anda" 
-             class="w-96 h-96 object-cover rounded-3xl shadow-2xl border-8 border-slate-700" alt="Foto">
+        <div class="flex justify-center">
+          <img src="https://via.placeholder.com/600x600/1e2937/64748b?text=Foto+Anda" class="w-96 h-96 object-cover rounded-3xl shadow-2xl" alt="Foto">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TENTANG SAYA -->
-  <section id="about" class="py-24 bg-slate-900">
+  <!-- TENTANG -->
+  <section id="about" class="bg-slate-900">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-5xl font-bold heading-font text-center mb-12">Tentang Saya</h2>
-      <div class="grid md:grid-cols-12 gap-12 items-center">
-        <div class="md:col-span-7 text-lg leading-relaxed text-slate-300">
-          <p class="mb-6">Saya adalah Web Developer dengan passion tinggi dalam menciptakan pengalaman digital yang indah dan fungsional.</p>
-          <p>Saya mahir menggunakan Tailwind CSS, JavaScript, React, dan berbagai teknologi modern lainnya.</p>
-        </div>
-        <div class="md:col-span-5 bg-slate-800 p-8 rounded-3xl">
-          <h3 class="font-semibold mb-4">Info Singkat</h3>
-          <div class="space-y-3">
-            <div class="flex justify-between"><span class="text-slate-400">Lokasi</span><span>Kota Anda</span></div>
-            <div class="flex justify-between"><span class="text-slate-400">Email</span><span>email@anda.com</span></div>
-            <div class="flex justify-between"><span class="text-slate-400">Status</span><span>Tersedia Freelance</span></div>
-          </div>
-        </div>
-      </div>
+      <p class="text-lg text-slate-300 max-w-3xl mx-auto text-center">Isi deskripsi diri kamu di sini...</p>
     </div>
   </section>
 
   <!-- PENDIDIKAN -->
-  <section id="education" class="py-24 bg-slate-950">
+  <section id="education" class="bg-slate-950">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-5xl font-bold heading-font text-center mb-12">Pendidikan</h2>
-      <div class="space-y-8">
-        <div class="bg-slate-800 p-8 rounded-3xl card-hover">
-          <h3 class="text-2xl font-semibold">Sarjana Teknik Informatika</h3>
-          <p class="text-cyan-400">Universitas XYZ • 2020 - 2024</p>
-          <p class="mt-4 text-slate-400">IPK 3.85 | Minat Utama: Web Development & UI/UX</p>
-        </div>
+      <div class="bg-slate-800 p-10 rounded-3xl max-w-2xl mx-auto">
+        <h3 class="text-2xl font-semibold">Sarjana Teknik Informatika</h3>
+        <p class="text-cyan-400">Universitas XYZ • 2020 - 2024</p>
       </div>
     </div>
   </section>
 
   <!-- PENGALAMAN -->
-  <section id="experience" class="py-24 bg-slate-900">
+  <section id="experience" class="bg-slate-900">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-5xl font-bold heading-font text-center mb-12">Pengalaman Kerja</h2>
-      <div class="space-y-8">
-        <div class="bg-slate-800 p-8 rounded-3xl card-hover">
-          <div class="flex justify-between">
-            <div>
-              <h3 class="text-xl font-semibold">Senior Web Developer</h3>
-              <p class="text-cyan-400">PT. Digital Indonesia • 2024 - Sekarang</p>
-            </div>
-            <span class="text-sm text-slate-500">Full Time</span>
-          </div>
-          <ul class="mt-6 space-y-2 text-slate-300">
-            <li>• Membangun website company profile</li>
-            <li>• Mengoptimasi performa website</li>
-            <li>• Membuat dashboard admin</li>
-          </ul>
-        </div>
+      <div class="bg-slate-800 p-10 rounded-3xl max-w-3xl mx-auto">
+        <h3 class="text-2xl font-semibold">Web Developer</h3>
+        <p class="text-cyan-400">PT. Contoh Perusahaan • 2024 - Sekarang</p>
       </div>
     </div>
   </section>
 
   <!-- PROYEK -->
-  <section id="projects" class="py-24 bg-slate-950">
+  <section id="projects" class="bg-slate-950">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-5xl font-bold heading-font text-center mb-12">Proyek Terbaru</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-slate-800 rounded-3xl overflow-hidden card-hover">
-          <img src="https://via.placeholder.com/600x400/1e2937/64748b?text=Proyek+1" class="w-full h-56 object-cover">
-          <div class="p-6">
-            <h3 class="font-semibold text-xl">E-Commerce Website</h3>
-            <p class="text-slate-400 mt-2">Website belanja online dengan sistem pembayaran</p>
-          </div>
-        </div>
-        <div class="bg-slate-800 rounded-3xl overflow-hidden card-hover">
-          <img src="https://via.placeholder.com/600x400/1e2937/64748b?text=Proyek+2" class="w-full h-56 object-cover">
-          <div class="p-6">
-            <h3 class="font-semibold text-xl">Dashboard Admin</h3>
-            <p class="text-slate-400 mt-2">Sistem manajemen data perusahaan</p>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-slate-800 p-8 rounded-3xl">Proyek 1 - Isi di sini</div>
+        <div class="bg-slate-800 p-8 rounded-3xl">Proyek 2 - Isi di sini</div>
       </div>
     </div>
   </section>
 
   <!-- KONTAK -->
-  <section id="contact" class="py-24 bg-slate-900">
+  <section id="contact" class="bg-slate-900">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold heading-font mb-6">Mari Berkolaborasi</h2>
-      <p class="text-xl text-slate-400 mb-10">Saya terbuka untuk proyek baru, freelance, atau diskusi.</p>
-      <a href="mailto:emailanda@gmail.com" class="inline-block px-12 py-6 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-semibold text-xl rounded-3xl hover:scale-105 transition-all">
-        Kirim Email Saya
-      </a>
+      <h2 class="text-5xl font-bold heading-font mb-8">Mari Berkolaborasi</h2>
+      <a href="mailto:emailanda@gmail.com" class="px-12 py-6 bg-cyan-500 text-black text-xl font-semibold rounded-3xl inline-block">Kirim Email</a>
     </div>
   </section>
 
-  <footer class="bg-black py-10 text-center text-slate-500">
-    © 2026 Nama Anda • Dibuat dengan ❤️
-  </footer>
-
   <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+
+      // Update active nav
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('nav-active');
+        if(link.getAttribute('onclick').includes(sectionId)) {
+          link.classList.add('nav-active');
+        }
+      });
+    }
+
     // Typing Effect
     const texts = ["Web Developer", "UI/UX Designer", "Freelancer"];
     let count = 0, index = 0;
@@ -185,17 +144,7 @@
         setTimeout(type, 80);
       }
     }
-    setTimeout(type, 800);
-
-    // Active nav & smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
+    setTimeout(type, 1000);
   </script>
 </body>
 </html>
